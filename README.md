@@ -5,98 +5,82 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=JSON%20web%20tokens&logoColor=white)
 
-A production-ready RESTful API for an e-commerce platform built with Node.js, Express.js, and MongoDB. Features complete authentication system with email verification, role-based authorization, advanced product management, and comprehensive security measures.
+A robust and secure RESTful API for an e-commerce platform built with Node.js, Express.js, and MongoDB. Features complete authentication, role-based authorization, product management, and advanced query capabilities.
 
 ## 📋 Table of Contents
 
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
+- [API Endpoints](#-api-endpoints)
+- [Authentication & Authorization](#-authentication--authorization)
 - [Installation](#-installation)
 - [Environment Variables](#-environment-variables)
 - [Running the Project](#-running-the-project)
-- [API Endpoints](#-api-endpoints)
-- [Authentication Flow](#-authentication-flow)
-- [Advanced Query Features](#-advanced-query-features)
+- [API Features](#-api-features)
 - [Security](#-security)
 - [Error Handling](#-error-handling)
+- [Future Improvements](#-future-improvements)
+- [Author](#-author)
 - [License](#-license)
 
 ## ✨ Features
 
-### 🔐 Authentication & Authorization
-- **User Registration** with email confirmation using OTP
-- **Email Verification** system with secure OTP generation
-- **Secure Login** with JWT token authentication
-- **Password Reset** functionality via email OTP
-- **Role-Based Access Control** (Admin/User)
-- **HTTP-only Cookie** support for token storage
+### Authentication & User Management
+- 🔐 User registration with email confirmation
+- 🔑 Secure login with JWT tokens
+- 📧 Password reset via email
+- 👤 Role-based access control (Admin/User)
+- 🗑️ Soft delete for users with restore capability
 
-### 📦 Product Management
-- **CRUD Operations** for products
-- **Image Upload** integration with Cloudinary
-- **Advanced Search** across multiple fields (name, title, description)
-- **Filtering** with comparison operators (gte, gt, lte, lt)
-- **Sorting** by multiple fields
-- **Pagination** with customizable limits
-- **Field Selection** for optimized responses
-- **Soft Delete** with restore capability (Admin only)
-- **Permanent Deletion** (Admin only)
+### Product Management
+- 📦 Full CRUD operations for products
+- 🖼️ Image upload integration with Cloudinary
+- 🔍 Advanced search and filtering
+- 📊 Pagination and field selection
+- 🗂️ Soft delete with admin restore
+- 👁️ Public product viewing for authenticated users
 
-### 👥 User Management
-- **Complete User CRUD** (Admin only)
-- **User Role Management** (Admin only)
-- **Soft Delete Users** with restore option
-- **View Deleted Users** (Admin dashboard)
+### Admin Features
+- 👨‍💼 Complete user management dashboard
+- 📋 View and restore deleted users
+- 🛒 View and restore deleted products
+- 🔧 Update user roles
+- 🗑️ Permanent deletion capabilities
 
-### 🛡️ Security Features
-- **Helmet.js** for secure HTTP headers
-- **Rate Limiting** on all endpoints
-- **Enhanced Rate Limiting** for authentication routes
-- **CORS** configuration with credentials support
-- **Password Hashing** with bcrypt
-- **Input Validation** using Yup schemas
-- **Request Size Limiting** (10kb JSON payload)
-- **XSS Protection**
-- **MongoDB Injection Prevention**
-
-### 📧 Email System
-- **HTML Email Templates** for professional communications
-- **OTP Generation** using nanoid
-- **Email Verification** confirmations
-- **Password Reset** emails
-- **Success Notifications**
+### Advanced Query Features
+- 🔎 Text search across multiple fields
+- 🎯 Advanced filtering with comparison operators
+- ⬆️⬇️ Multi-field sorting
+- 📄 Pagination with customizable limits
+- 🎭 Field selection (choose which fields to return)
 
 ## 🛠️ Tech Stack
 
 ### Core
-- **[Node.js](https://nodejs.org/)** (v14+) - JavaScript runtime
-- **[Express.js](https://expressjs.com/)** (v5.2.1) - Web framework
-- **[MongoDB](https://www.mongodb.com/)** - NoSQL database
-- **[Mongoose](https://mongoosejs.com/)** (v9.1.1) - MongoDB ODM
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web application framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB ODM
 
 ### Authentication & Security
-- **[JWT (jsonwebtoken)](https://github.com/auth0/node-jsonwebtoken)** (v9.0.3) - Authentication tokens
-- **[bcrypt](https://github.com/kelektiv/node.bcrypt.js)** (v5.1.1) - Password hashing
-- **[Helmet](https://helmetjs.github.io/)** (v8.1.0) - Security headers
-- **[CORS](https://github.com/expressjs/cors)** (v2.8.5) - Cross-origin resource sharing
-- **[express-rate-limit](https://github.com/nfriedly/express-rate-limit)** (v8.2.1) - Rate limiting
-- **[cookie-parser](https://github.com/expressjs/cookie-parser)** (v1.4.7) - Cookie handling
+- **JWT (jsonwebtoken)** - Token-based authentication
+- **bcrypt** - Password hashing
+- **Helmet** - Security headers
+- **CORS** - Cross-origin resource sharing
+- **express-rate-limit** - Rate limiting middleware
+- **cookie-parser** - Cookie parsing
 
-### File Upload & Cloud Storage
-- **[Multer](https://github.com/expressjs/multer)** (v2.0.2) - File upload handling
-- **[Cloudinary](https://cloudinary.com/)** (v2.9.0) - Cloud image storage and management
+### File Upload & Email
+- **Multer** - Multipart/form-data handling
+- **Cloudinary** - Cloud image storage
+- **Nodemailer** - Email service
 
-### Email & Validation
-- **[Nodemailer](https://nodemailer.com/)** (v7.0.12) - Email sending
-- **[Yup](https://github.com/jquense/yup)** (v1.7.1) - Schema validation
-- **[nanoid](https://github.com/ai/nanoid)** (v5.1.6) - Secure unique ID generation
-
-### Development & Utilities
-- **[dotenv](https://github.com/motdotla/dotenv)** (v17.2.3) - Environment variables
-- **[Morgan](https://github.com/expressjs/morgan)** (v1.10.1) - HTTP request logger
-- **[Nodemon](https://nodemon.io/)** (v3.1.11) - Auto-restart on file changes
-- **[Chalk](https://github.com/chalk/chalk)** (v4.1.2) - Terminal styling
+### Validation & Utilities
+- **Yup** - Schema validation
+- **dotenv** - Environment variable management
+- **Morgan** - HTTP request logger
+- **nanoid** - Unique ID generation
 
 ## 📁 Project Structure
 
@@ -104,64 +88,128 @@ A production-ready RESTful API for an e-commerce platform built with Node.js, Ex
 ecommerce-api/
 │
 ├── config/
-│   ├── dbConnect.js              # MongoDB connection configuration
-│   └── cloudinary.js             # Cloudinary setup
+│   ├── dbConnect.js              # MongoDB connection
+│   └── cloudinary.js             # Cloudinary configuration
 │
 ├── controllers/
-│   ├── authController.js         # Authentication logic (signup, login, reset)
-│   ├── userController.js         # User management operations
-│   ├── productsController.js     # Product CRUD operations
-│   └── adminController.js        # Admin-specific operations
+│   ├── authController.js         # Authentication logic
+│   ├── userController.js         # User management
+│   ├── productsController.js     # Product operations
+│   └── adminController.js        # Admin operations
 │
 ├── middleware/
-│   ├── auth.js                   # JWT verification & protection
+│   ├── auth.js                   # JWT verification
 │   ├── restrictTo.js             # Role-based authorization
 │   ├── validator.js              # Yup validation middleware
 │   ├── multer.js                 # File upload configuration
-│   └── globalError.js            # Centralized error handler
+│   └── globalError.js            # Global error handler
 │
 ├── models/
-│   ├── userModel.js              # User schema & methods
-│   └── productModel.js           # Product schema & methods
+│   ├── userModel.js              # User schema
+│   └── productModel.js           # Product schema
 │
 ├── routes/
-│   ├── authRoutes.js             # Authentication endpoints
-│   ├── userRoutes.js             # User management endpoints
+│   ├── authRoutes.js             # Auth endpoints
+│   ├── userRoutes.js             # User endpoints
 │   ├── productRoutes.js          # Product endpoints
-│   └── adminRouter.js            # Admin dashboard endpoints
+│   └── adminRouter.js            # Admin endpoints
 │
 ├── utils/
-│   ├── apiFeatures.js            # Query builder class (filter, search, sort, paginate)
+│   ├── apiFeatures.js            # Query builder class
 │   ├── asyncCatch.js             # Async error wrapper
 │   ├── classError.js             # Custom error class
-│   ├── email.js                  # Email sending utility
-│   ├── emailHTML.js              # HTML email templates
+│   ├── email.js                  # Email utility
+│   ├── emailHTML.js              # Email templates
 │   └── uploadToCloudinary.js     # Cloudinary upload helper
 │
 ├── validators/
 │   ├── login.js                  # Login validation schema
 │   └── register.js               # Registration validation schema
 │
-├── .env                          # Environment variables
-├── .gitignore                    # Git ignore rules
+├── .gitignore
 ├── app.js                        # Express app configuration
 ├── server.js                     # Server entry point
-├── package.json                  # Dependencies & scripts
-└── README.md                     # Project documentation
+├── package.json
+└── config.env                    # Environment variables
+```
+
+## 🔌 API Endpoints
+
+### Authentication Routes
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | `/auth/signup` | Register new user | Public |
+| POST | `/auth/login` | User login | Public |
+| POST | `/auth/confirm-email` | Confirm email address | Public |
+| POST | `/auth/forget-password` | Request password reset | Public |
+| POST | `/auth/reset-password` | Reset password with token | Public |
+
+### Product Routes
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/products` | Get all products | Public |
+| POST | `/products` | Create new product | Admin |
+| GET | `/products/get-status` | Get product statistics | Public |
+| GET | `/products/deleted-items` | Get soft-deleted products | Admin |
+| GET | `/products/user-products` | Get products for logged user | User |
+| GET | `/products/:id` | Get single product | User |
+| PATCH | `/products/:id` | Soft delete product | Admin |
+| DELETE | `/products/:id` | Permanently delete product | Admin |
+| PATCH | `/products/edit/:id` | Update product | Admin |
+
+### User Routes
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/users` | Get all users | Admin |
+| POST | `/users` | Create new user | Admin |
+| GET | `/users/:id` | Get single user | Admin |
+| PATCH | `/users/:id` | Soft delete user | Admin |
+| DELETE | `/users/:id` | Permanently delete user | Admin |
+| PATCH | `/users/edit/:id` | Update user | Admin |
+| PATCH | `/users/role/:id` | Update user role | Admin |
+
+### Admin Routes
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/admin/deleted-users` | Get all deleted users | Admin |
+| GET | `/admin/deleted-products` | Get all deleted products | Admin |
+| PATCH | `/admin/restore-user/:id` | Restore deleted user | Admin |
+| PATCH | `/admin/restore-product/:id` | Restore deleted product | Admin |
+
+## 🔐 Authentication & Authorization
+
+### Authentication Flow
+1. User registers via `/auth/signup`
+2. Confirmation email sent with verification code
+3. User confirms email via `/auth/confirm-email`
+4. User logs in via `/auth/login` and receives JWT token
+5. Token sent in Authorization header: `Bearer <token>`
+
+### Role-Based Access Control
+- **Public Routes**: Product listing, authentication endpoints
+- **User Routes**: View product details, personal product access
+- **Admin Routes**: Full CRUD on users and products, restore deleted items
+
+### JWT Token Structure
+```javascript
+{
+  userId: "user_id",
+  role: "admin" | "user",
+  iat: timestamp,
+  exp: timestamp
+}
 ```
 
 ## 📦 Installation
 
 ### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- npm or yarn
+- Cloudinary account (for image uploads)
+- Email service credentials (Gmail/SendGrid/Mailtrap)
 
-Before you begin, ensure you have the following installed:
-- **Node.js** (v14 or higher) - [Download](https://nodejs.org/)
-- **npm** (comes with Node.js)
-- **MongoDB Atlas account** or local MongoDB installation
-- **Cloudinary account** (for image uploads) - [Sign up](https://cloudinary.com/)
-- **Email service credentials** (Gmail recommended)
-
-### Setup Steps
+### Steps
 
 1. **Clone the repository**
 ```bash
@@ -174,26 +222,21 @@ cd ecommerce-api
 npm install
 ```
 
-3. **Create environment file**
+3. **Set up environment variables**
 ```bash
-# Create .env file in the root directory
-touch .env
+cp config.env.example config.env
 ```
+Edit `config.env` with your actual credentials (see [Environment Variables](#-environment-variables))
 
-4. **Configure environment variables** (see [Environment Variables](#-environment-variables))
-
-5. **Start MongoDB**
-- If using MongoDB Atlas, ensure your connection string is correct
-- If using local MongoDB:
+4. **Ensure MongoDB is running**
 ```bash
-# macOS/Linux
+# For local MongoDB
 sudo systemctl start mongodb
 
-# Windows
-net start MongoDB
+# Or use MongoDB Atlas connection string in config.env
 ```
 
-6. **Run the application**
+5. **Start the server**
 ```bash
 npm start
 ```
@@ -202,41 +245,36 @@ The API will be available at `http://localhost:5000`
 
 ## 🔑 Environment Variables
 
-Create a `.env` file in the root directory with the following variables:
+Create a `config.env` file in the root directory:
 
 ```env
 # Server Configuration
 NODE_ENV=development
 PORT=5000
 
-# Database Configuration
-# MongoDB Atlas (recommended)
-DATABASE=mongodb+srv://username:password@cluster.mongodb.net/ecommerce
-
-# Or Local MongoDB
-# DATABASE=mongodb://localhost:27017/ecommerce
+# Database
+MONGODB_URI=mongodb://localhost:27017/ecommerce
+# Or MongoDB Atlas:
+# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/ecommerce
 
 # JWT Configuration
-SECRET_KEY=your-super-secret-jwt-key-minimum-32-characters-long
+JWT_SECRET=your-super-secret-jwt-key-minimum-32-characters
 JWT_EXPIRES_IN=90d
 JWT_COOKIE_EXPIRES_IN=90
 
-# Password Hashing
-SALT_ROUND=10
-
-# Client Configuration (Frontend URL)
+# Client URL (Frontend)
 CLIENT_URL=http://localhost:4200
 
-# Cloudinary Configuration
+# Cloudinary (Image Upload)
 CLOUDINARY_CLOUD_NAME=your-cloud-name
 CLOUDINARY_API_KEY=your-api-key
 CLOUDINARY_API_SECRET=your-api-secret
 
-# Email Configuration (Gmail Example)
+# Email Configuration (Nodemailer)
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_MAIL=your-email@gmail.com
-EMAIL_PASSWORD=your-gmail-app-password
+EMAIL_PASSWORD=your-app-password
 
 # Rate Limiting
 RATE_LIMIT_WINDOW_MS=600000
@@ -245,26 +283,10 @@ AUTH_RATE_LIMIT_WINDOW_MS=900000
 AUTH_RATE_LIMIT_MAX=5
 ```
 
-### 📝 Configuration Notes
-
-#### Gmail Setup for Email Service:
-1. Enable 2-Factor Authentication on your Gmail account
-2. Generate an App Password:
-   - Go to Google Account Settings → Security → 2-Step Verification
-   - Scroll to "App passwords"
-   - Generate a new app password
-   - Use this password in `EMAIL_PASSWORD`
-
-#### MongoDB Atlas Setup:
-1. Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a database user
-3. Whitelist your IP address (or use 0.0.0.0/0 for development)
-4. Copy your connection string and replace in `DATABASE`
-
-#### Cloudinary Setup:
-1. Sign up at [Cloudinary](https://cloudinary.com/)
-2. Copy your Cloud Name, API Key, and API Secret from the dashboard
-3. Add them to your `.env` file
+### Email Provider Options
+- **Gmail**: Use app-specific password (enable 2FA first)
+- **SendGrid**: Use API key as password
+- **Mailtrap**: For testing emails in development
 
 ## 🚀 Running the Project
 
@@ -272,16 +294,14 @@ AUTH_RATE_LIMIT_MAX=5
 ```bash
 npm start
 ```
-Server runs with nodemon for automatic restarts on file changes.
+Server runs with nodemon (auto-restart on file changes)
 
 ### Production Mode
 ```bash
 NODE_ENV=production node server.js
 ```
 
-### Testing the API
-
-#### Using cURL:
+### Testing Endpoints
 ```bash
 # Health check
 curl http://localhost:5000/health
@@ -289,71 +309,80 @@ curl http://localhost:5000/health
 # Get all products
 curl http://localhost:5000/products
 
-# Register a new user
+# Register user
 curl -X POST http://localhost:5000/auth/signup \
   -H "Content-Type: application/json" \
-  -d '{
-    "name": "John Doe",
-    "email": "john@example.com",
-    "password": "password123"
-  }'
+  -d '{"name":"John Doe","email":"john@example.com","password":"password123"}'
+
+# Login
+curl -X POST http://localhost:5000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"john@example.com","password":"password123"}'
 ```
 
-#### Using Postman:
-Import the endpoints below or access the API directly at `http://localhost:5000`
+## 🎯 API Features
 
-## 🔌 API Endpoints
+### Advanced Querying
 
-### 🏠 Root & Health
-| Method | Endpoint | Description | Access |
-|--------|----------|-------------|--------|
-| GET | `/` | API information & available endpoints | Public |
-| GET | `/health` | Server health check | Public |
+The API supports sophisticated query operations through URL parameters:
 
-### 🔐 Authentication Routes (`/auth`)
-| Method | Endpoint | Description | Access |
-|--------|----------|-------------|--------|
-| POST | `/auth/signup` | Register new user | Public |
-| POST | `/auth/login` | User login | Public |
-| POST | `/auth/confirm-email` | Verify email with OTP | Public |
-| POST | `/auth/forget-password` | Request password reset OTP | Public |
-| POST | `/auth/reset-password` | Reset password with OTP | Public |
+#### 1. Filtering
+```bash
+# Basic filtering
+GET /products?category=electronics&stock[gte]=10
 
-### 📦 Product Routes (`/products`)
-| Method | Endpoint | Description | Access |
-|--------|----------|-------------|--------|
-| GET | `/products` | Get all products with filters | Public |
-| POST | `/products` | Create new product | Admin |
-| GET | `/products/get-status` | Get product statistics | Public |
-| GET | `/products/deleted-items` | Get soft-deleted products | Admin |
-| GET | `/products/user-products` | Get user's products | User |
-| GET | `/products/:id` | Get single product by ID | User |
-| PATCH | `/products/:id` | Soft delete product | Admin |
-| DELETE | `/products/:id` | Permanently delete product | Admin |
-| PATCH | `/products/edit/:id` | Update product details | Admin |
+# Comparison operators: gte, gt, lte, lt
+GET /products?price[gte]=100&price[lte]=500
+```
 
-### 👥 User Routes (`/users`)
-| Method | Endpoint | Description | Access |
-|--------|----------|-------------|--------|
-| GET | `/users` | Get all users | Admin |
-| POST | `/users` | Create new user | Admin |
-| GET | `/users/:id` | Get single user | Admin |
-| PATCH | `/users/:id` | Soft delete user | Admin |
-| DELETE | `/users/:id` | Permanently delete user | Admin |
-| PATCH | `/users/edit/:id` | Update user details | Admin |
-| PATCH | `/users/role/:id` | Update user role | Admin |
+#### 2. Searching
+```bash
+# Search across name, title, and description fields
+GET /products?search=laptop
 
-### 🛡️ Admin Routes (`/admin`)
-| Method | Endpoint | Description | Access |
-|--------|----------|-------------|--------|
-| GET | `/admin/deleted-users` | View all deleted users | Admin |
-| GET | `/admin/deleted-products` | View all deleted products | Admin |
-| PATCH | `/admin/restore-user/:id` | Restore deleted user | Admin |
-| PATCH | `/admin/restore-product/:id` | Restore deleted product | Admin |
+# Case-insensitive partial matching
+GET /products?search=phone
+```
 
-## 🔐 Authentication Flow
+#### 3. Sorting
+```bash
+# Sort by single field (ascending)
+GET /products?sort=price
 
-### 1. User Registration
+# Sort descending (prefix with -)
+GET /products?sort=-createdAt
+
+# Sort by multiple fields
+GET /products?sort=category,-price
+```
+
+#### 4. Field Selection
+```bash
+# Select specific fields
+GET /products?fields=name,price,category
+
+# Exclude fields (default excludes: isDeleted, __v)
+GET /products?fields=-description,-reviews
+```
+
+#### 5. Pagination
+```bash
+# Custom page and limit
+GET /products?page=2&limit=20
+
+# Default: page=1, limit=10
+GET /products?page=1
+```
+
+#### Combined Example
+```bash
+GET /products?category=electronics&price[gte]=100&search=laptop&sort=-price&fields=name,price,stock&page=1&limit=10
+```
+
+### Request/Response Examples
+
+#### Register User
+**Request:**
 ```http
 POST /auth/signup
 Content-Type: application/json
@@ -369,334 +398,152 @@ Content-Type: application/json
 ```json
 {
   "success": true,
-  "user": {
-    "id": "507f1f77bcf86cd799439011",
-    "name": "John Doe",
-    "email": "john@example.com",
-    "role": "user",
-    "emailConfirm": false
+  "message": "User registered successfully. Please check your email to confirm.",
+  "data": {
+    "user": {
+      "id": "507f1f77bcf86cd799439011",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "user"
+    }
   }
 }
 ```
-📧 An OTP will be sent to the user's email.
 
-### 2. Email Confirmation
+#### Create Product (Admin)
+**Request:**
 ```http
-POST /auth/confirm-email
-Content-Type: application/json
+POST /products
+Authorization: Bearer <admin_token>
+Content-Type: multipart/form-data
 
 {
-  "email": "john@example.com",
-  "confirmOTP": "123456"
+  "name": "Laptop",
+  "description": "High-performance laptop",
+  "price": 999.99,
+  "category": "electronics",
+  "stock": 50,
+  "image": <file>
 }
 ```
 
 **Response:**
 ```json
 {
-  "user": {
-    "id": "507f1f77bcf86cd799439011",
-    "name": "John Doe",
-    "email": "john@example.com",
-    "emailConfirm": true
+  "success": true,
+  "message": "Product created successfully",
+  "data": {
+    "product": {
+      "id": "507f1f77bcf86cd799439012",
+      "name": "Laptop",
+      "price": 999.99,
+      "imageUrl": "https://res.cloudinary.com/...",
+      "stock": 50,
+      "createdAt": "2024-02-14T10:30:00.000Z"
+    }
   }
 }
 ```
-
-### 3. Login
-```http
-POST /auth/login
-Content-Type: application/json
-
-{
-  "email": "john@example.com",
-  "password": "securePassword123"
-}
-```
-
-**Response:**
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
-```
-
-### 4. Using Authentication
-Include the JWT token in subsequent requests:
-```http
-GET /products/:id
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
-
-### 5. Password Reset Flow
-
-**Step 1 - Request OTP:**
-```http
-POST /auth/forget-password
-Content-Type: application/json
-
-{
-  "email": "john@example.com"
-}
-```
-
-**Step 2 - Reset Password:**
-```http
-POST /auth/reset-password
-Content-Type: application/json
-
-{
-  "email": "john@example.com",
-  "confirmOTP": "123456",
-  "newPassword": "newSecurePassword123",
-  "RepeatPassword": "newSecurePassword123"
-}
-```
-
-## 🎯 Advanced Query Features
-
-The API supports sophisticated querying through URL parameters:
-
-### 1. Filtering
-```bash
-# Basic filtering
-GET /products?category=electronics&stock=50
-
-# Comparison operators: gte (≥), gt (>), lte (≤), lt (<)
-GET /products?price[gte]=100&price[lte]=500
-
-# Multiple filters
-GET /products?category=electronics&stock[gte]=10&price[lt]=1000
-```
-
-### 2. Text Search
-```bash
-# Search across name, title, and description fields
-GET /products?search=laptop
-
-# Case-insensitive partial matching
-GET /products?search=wireless%20headphones
-```
-
-### 3. Sorting
-```bash
-# Sort ascending
-GET /products?sort=price
-
-# Sort descending (prefix with -)
-GET /products?sort=-price
-
-# Sort by multiple fields
-GET /products?sort=category,-price,createdAt
-```
-
-### 4. Field Selection
-```bash
-# Select specific fields only
-GET /products?fields=name,price,category,stock
-
-# Exclude specific fields (prefix with -)
-GET /products?fields=-description,-reviews,-__v
-```
-
-### 5. Pagination
-```bash
-# Specify page and limit
-GET /products?page=2&limit=20
-
-# Default values: page=1, limit=10
-GET /products?page=1
-```
-
-### 6. Combined Query Example
-```bash
-# Complex query with all features
-GET /products?category=electronics&price[gte]=100&price[lte]=1000&search=gaming&sort=-price&fields=name,price,stock&page=1&limit=15
-```
-
-This returns:
-- Electronics category
-- Price between $100 and $1000
-- Contains "gaming" in name/title/description
-- Sorted by price (highest first)
-- Only name, price, and stock fields
-- First page with 15 items
 
 ## 🔒 Security
 
 ### Implemented Security Measures
 
-#### 1. Helmet.js Protection
-- XSS Protection
-- Content Security Policy
-- DNS Prefetch Control
-- Frame Options (clickjacking protection)
-- IE No Open
-- HTTP Strict Transport Security
+1. **Helmet.js**
+   - Sets secure HTTP headers
+   - XSS protection
+   - Content Security Policy
+   - Frame options
 
-#### 2. Rate Limiting
-```javascript
-// Global API Rate Limit
-100 requests per 10 minutes per IP
+2. **Rate Limiting**
+   - Global API limit: 100 requests/10 minutes
+   - Auth endpoints: 5 requests/15 minutes
+   - Prevents brute force attacks
 
-// Authentication Rate Limit
-5 requests per 15 minutes per IP (for /auth/login and /auth/register)
-```
+3. **Authentication**
+   - JWT-based stateless authentication
+   - HTTP-only cookies support
+   - Token expiration handling
 
-#### 3. Authentication Security
-- **JWT Tokens**: Stateless authentication with 7-day expiration
-- **Password Hashing**: bcrypt with configurable salt rounds (default: 10)
-- **HTTP-only Cookies**: Secure token storage option
-- **Token Verification**: Middleware protects sensitive routes
+4. **Password Security**
+   - bcrypt hashing with salt rounds
+   - Minimum password length validation
+   - No plain-text storage
 
-#### 4. Input Validation
-- **Yup Schemas**: Validate all user inputs
-- **Email Validation**: RFC-compliant email format checking
-- **Password Requirements**: Minimum 6 characters (customizable)
-- **Name Validation**: 6-20 characters with proper sanitization
+5. **Input Validation**
+   - Yup schema validation on all inputs
+   - Prevents injection attacks
+   - Type checking and sanitization
 
-#### 5. Database Security
-- **MongoDB Injection Prevention**: Input sanitization
-- **Parameterized Queries**: Using Mongoose ODM
-- **Connection String Security**: Environment variables only
+6. **CORS Configuration**
+   - Restricted to specified origins
+   - Credentials support enabled
+   - Prevents unauthorized access
 
-#### 6. CORS Configuration
-```javascript
-{
-  origin: process.env.CLIENT_URL,  // Specific origin only
-  credentials: true,                // Allow cookies
-}
-```
+7. **Request Size Limiting**
+   - JSON payload limited to 10kb
+   - Prevents DoS attacks
 
-#### 7. Request Size Limiting
-- JSON payload limited to 10kb
-- Prevents DoS attacks via large payloads
-
-#### 8. Soft Delete Pattern
-- **Data Recovery**: Admin can restore deleted items
-- **Audit Trail**: Maintains deletion history
-- **GDPR Compliance**: Permanent deletion available
-
-### Security Best Practices Implemented
-✅ No sensitive data in responses (passwords, OTPs excluded)  
-✅ Environment variables for all secrets  
-✅ Secure OTP generation using nanoid  
-✅ Email verification before account activation  
-✅ Password reset requires both email and OTP  
-✅ Role-based access control throughout  
-✅ Error messages don't expose system internals  
-✅ HTTPS ready (configure reverse proxy in production)  
+8. **Soft Delete Pattern**
+   - Data recovery capability
+   - Audit trail maintenance
+   - Admin-only permanent deletion
 
 ## ⚠️ Error Handling
 
 ### Error Response Format
-All errors follow a consistent structure:
-
 ```json
 {
   "success": false,
-  "statusCode": 400,
   "message": "Error description",
-  "isOperational": true
+  "statusCode": 400,
+  "error": {
+    "details": "Detailed error information"
+  }
 }
 ```
 
 ### HTTP Status Codes
-| Code | Description |
-|------|-------------|
-| 200 | Success |
-| 201 | Created |
-| 400 | Bad Request (Invalid input, validation errors) |
-| 401 | Unauthorized (Invalid/missing token, unconfirmed email) |
-| 403 | Forbidden (Insufficient permissions) |
-| 404 | Not Found (Resource doesn't exist) |
-| 429 | Too Many Requests (Rate limit exceeded) |
-| 500 | Internal Server Error |
+- **200**: Success
+- **201**: Created
+- **400**: Bad Request (Invalid input)
+- **401**: Unauthorized (Invalid/missing token)
+- **403**: Forbidden (Insufficient permissions)
+- **404**: Not Found
+- **429**: Too Many Requests (Rate limit exceeded)
+- **500**: Internal Server Error
 
-### Common Error Scenarios
-
-#### Invalid Credentials
-```json
-{
-  "success": false,
-  "statusCode": 400,
-  "message": "Invalid Credential"
-}
-```
-
-#### Email Not Confirmed
-```json
-{
-  "success": false,
-  "statusCode": 401,
-  "message": "please confirm your email first!"
-}
-```
-
-#### Invalid OTP
-```json
-{
-  "success": false,
-  "statusCode": 400,
-  "message": "OTP is invalid please try again!"
-}
-```
-
-#### Rate Limit Exceeded
-```json
-{
-  "success": false,
-  "statusCode": 429,
-  "message": "Too many authentication attempts, please try again later"
-}
-```
-
-### Error Handling Architecture
+### Error Handling Strategy
 - **Custom Error Class**: `AppError` for operational errors
-- **Async Wrapper**: `asyncCatch` eliminates repetitive try-catch blocks
-- **Global Error Handler**: Centralized error processing and formatting
-- **Validation Errors**: Detailed Yup validation messages
-- **MongoDB Errors**: Handled cast errors, duplicate keys, validation errors
+- **Async Wrapper**: `asyncCatch` prevents try-catch repetition
+- **Global Error Handler**: Centralized error processing
+- **Validation Errors**: Yup schema validation with detailed messages
+- **MongoDB Errors**: Cast errors, duplicate key errors handled
 
-## 🧪 Testing
+## 📈 Future Improvements
 
-### Manual Testing with cURL
+### Planned Features
+- [ ] Order management system
+- [ ] Shopping cart functionality
+- [ ] Payment gateway integration (Stripe/PayPal)
+- [ ] Product reviews and ratings
+- [ ] Wishlist functionality
+- [ ] Real-time notifications with WebSockets
+- [ ] Advanced analytics dashboard
+- [ ] Product categories with hierarchical structure
+- [ ] Inventory management
+- [ ] Multi-language support
 
-**Create Product (requires admin token):**
-```bash
-curl -X POST http://localhost:5000/products \
-  -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
-  -H "Content-Type: multipart/form-data" \
-  -F "name=Gaming Laptop" \
-  -F "price=1299.99" \
-  -F "category=electronics" \
-  -F "stock=25" \
-  -F "description=High-performance gaming laptop" \
-  -F "image=@/path/to/image.jpg"
-```
-
-**Get Products with Filters:**
-```bash
-curl "http://localhost:5000/products?category=electronics&price[gte]=500&sort=-price&limit=10"
-```
-
-**Search Products:**
-```bash
-curl "http://localhost:5000/products?search=laptop&fields=name,price,stock"
-```
-
-### Using Postman
-
-1. Import the API endpoints
-2. Set up an environment with:
-   - `base_url`: `http://localhost:5000`
-   - `token`: (will be set after login)
-3. Test the authentication flow
-4. Use the token in Authorization header for protected routes
-
-## 📄 License
-
-This project is licensed under the ISC License.
+### Technical Enhancements
+- [ ] API documentation with Swagger/OpenAPI
+- [ ] Unit and integration tests (Jest/Mocha)
+- [ ] Caching layer with Redis
+- [ ] Microservices architecture
+- [ ] GraphQL API endpoint
+- [ ] Docker containerization
+- [ ] CI/CD pipeline setup
+- [ ] Logging with Winston
+- [ ] Performance monitoring
 
 ## 👨‍💻 Author
 
@@ -705,11 +552,21 @@ This project is licensed under the ISC License.
 - LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
 - Email: your.email@example.com
 
-## 🙏 Acknowledgments
+## 📄 License
 
-- Express.js community
-- MongoDB team
-- All open-source contributors
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📞 Support
 
@@ -719,43 +576,7 @@ For support or questions:
 
 ---
 
-## 🚀 Deployment
+**⭐ If you find this project useful, please consider giving it a star!**
 
-### Deploy to Heroku
 
-```bash
-# Install Heroku CLI
-heroku login
 
-# Create Heroku app
-heroku create your-app-name
-
-# Set environment variables
-heroku config:set NODE_ENV=production
-heroku config:set DATABASE=your-mongodb-atlas-uri
-heroku config:set SECRET_KEY=your-secret-key
-# ... set all other environment variables
-
-# Deploy
-git push heroku main
-
-# Open your app
-heroku open
-```
-
-### Deploy to Railway
-
-1. Connect your GitHub repository
-2. Add environment variables in Railway dashboard
-3. Deploy automatically on push
-
-### Deploy to Render
-
-1. Create new Web Service
-2. Connect your repository
-3. Set environment variables
-4. Deploy
-
----
-
-**⭐ If you found this project helpful, please give it a star!**
